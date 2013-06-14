@@ -1,0 +1,164 @@
+﻿一、用户模块:
+1.用户添加:
+/servlet/UserRegister
+1.name
+2.password
+
+2.用户登录
+/servlet/UserLogin
+1.name
+2.password
+
+3.添加订阅用户
+/servlet/SubscriptionRelationAdd
+1.userId 本用户的id
+2.subscriptionId 要订阅人的id
+
+4.取消订阅用户
+/servlet/SubscriptionRelationDelete
+1.userId 本用户的id
+2.subscriptionId 要订阅人的id
+
+
+5.获取该用户的订阅列表
+/servlet/SubscriptionRelationListGet
+1.userId
+2.pageIndex 第几页,为0就是列出全部
+3.pageSize 页面的容量,为0就是列出全部
+
+
+6.获取用户粉丝列表
+/servlet/FanRelationListGet
+1.userId
+2.pageIndex 第几页,为0就是列出全部
+3.pageSize 页面的容量,为0就是列出全部
+
+7.获取用户的订阅量
+/servlet/SubscriptionRelationCountGet
+1.userId
+
+8.获取用户粉丝数
+/servlet/FanRelationCountGet
+1.userId
+
+9.用户头像上传
+/servlet/UserHeadPicUpload
+1.userId
+2.headPic
+
+10.用户获取
+/servlet/UserGet
+1.userId
+
+11.判断订阅关系
+/servlet/SubscriptionRelationWhether
+1.userId
+2.subscriptionId
+
+12.查询用户
+/servlet/UserSearchByName
+1.name
+2.pageIndex 为0查询全部
+3.pageSize 为0查询全部
+
+
+13.添加用户喜欢的相片
+servlet/UserLikePhotoAdd
+1.userId
+2.photoId
+
+14.删除用户喜欢的相片
+servlet/UserLikePhotoDelete
+1.userId
+2.photoId
+
+15.查询用户是否喜欢此相片
+servlet/UserLikePhotoWhetherGet
+1.userId
+2.photoId
+
+16.获取用户喜欢相片的总数
+/servlet/UserLikePhotoPhotoCountGet
+1.userId
+
+
+
+二、图片模块:
+
+1.上传图片
+/servlet/PhotoUpload
+1.user_id
+2.photo
+4.longitude
+5.latitude
+6.address
+
+2.获取用户图片,时间降序
+/servlet/PhotoList4UserIdGet
+1.userId
+2.pageIndex 第几页,为0就是列出全部
+3.pageSize 页面的容量,为0就是列出全部
+
+3.获取用户订阅的图片列表
+/servlet/SubscriptionPhotoListGet
+1.userId
+2.pageIndex 第几页,为0就是列出全部
+3.pageSize 页面的容量,为0就是列出全部
+
+4.添加评论
+/servlet/CommentAdd
+1.photoId
+2.ownerId
+3.toId
+4.content
+
+5.获取图片评论列表
+/servlet/PhotoCommentListGet
+1.photoId
+2.pageIndex 第几页,为0就是列出全部
+3.pageSize 页面的容量,为0就是列出全部
+
+6.获取附近图片列表
+/servlet/NearbyPhotoListGet
+1.userId
+2.longitude
+3.latitude
+
+7.获取用户图片数量
+/servlet/PhotoCountGet
+1.userId
+
+
+8.获取吹图片
+/servlet/PhotoBlowRandomGet
+
+9.获取图片评论总数
+/servlet/PhotoCommentCountGet
+1.photoId
+
+
+10.获取用户喜欢的相片列表
+/servlet/UserLikePhotoPhotoListGet
+1.userId
+2.pageIndex
+3.pageSize
+
+
+11.获取图片喜欢的人数
+servlet/UserLikePhotoUsersCountGet
+1.photoId
+
+
+create table t_user_like_photo
+(
+id int not null auto_increment primary key,
+user_id int,
+photo_id int
+);
+
+
+三、手机模块
+/servlet/PhoneMessageAdd
+1.sender
+2.receiver
+3.content

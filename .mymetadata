@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="PhotoShare-Server"
+  id="myeclipse.1365491795215"
+  context-root="/PhotoShare-Server"
+  j2ee-spec="5.0"
+  archive="PhotoShare-Server.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

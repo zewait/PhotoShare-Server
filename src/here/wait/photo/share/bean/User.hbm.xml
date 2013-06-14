@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="here.wait.photo.share.bean">
+	<class name="User" table="t_user">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name" />
+		<property name="password" />
+		<property name="headPicSrc" column="head_pic_src"/>
+		<property name="hardPicDiskPath" column="hard_pic_disk_path"/>
+		
+		<!-- 一对多 -->
+		<set name="photos" inverse="true" cascade="all" lazy="true">
+			<key column="user_id" />
+			<one-to-many class="Photo"/>
+		</set>
+		
+		
+		<!-- 多对多 -->
+		<!-- <set name="subscriptions" table="t_user_subscriptions" lazy="false">
+			<key column="user_id" />
+			<many-to-many class="User" column="subscription_id" />
+		</set> -->
+		<!-- 多对多 -->
+		<!-- <set name="fans" table="t_user_fans" lazy="false">
+			<key column="user_id" />
+			<many-to-many class="User" column="fan_id" />
+		</set> -->
+	</class>
+
+</hibernate-mapping>

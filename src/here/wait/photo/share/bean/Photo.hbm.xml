@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="here.wait.photo.share.bean">
+	<class name="Photo" table="t_photo">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="longitude" />
+		<property name="latitude" />
+		<property name="geoHash" column="geo_hash"/>
+		<property name="address" />
+		
+		<property name="content" />
+		<property name="src" />
+		<property name="zoomSrc" />
+		<property name="hardDiskPath" column="hard_disk_path"/>
+		<property name="hardDiskZoomPath" column="hard_disk_zoom_path"/>
+		<property name="isBlow" column="is_blow"/>
+		
+		
+		<property name="createTime" column="create_time"/>
+		
+		<many-to-one name="user" column="user_id" lazy="false" />
+		
+		<!-- 一对多 -->
+		<!-- <set name="comments" lazy="true">
+			<key column="photo_id" />
+			<one-to-many class="Comment" />
+		</set> -->
+		
+	</class>
+
+</hibernate-mapping>

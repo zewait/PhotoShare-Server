@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/photo_share</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="show_sql">true</property>
+		<property name="javax.persistence.validation.mode">none</property>  
+		
+		<mapping resource="here/wait/photo/share/bean/User.hbm.xml"/>
+		<mapping resource="here/wait/photo/share/bean/Photo.hbm.xml"/>
+		<mapping resource="here/wait/photo/share/bean/Comment.hbm.xml"/>
+		<mapping resource="here/wait/photo/share/bean/FanRelation.hbm.xml"/>
+		<mapping resource="here/wait/photo/share/bean/SubscriptionRelation.hbm.xml"/>
+		<mapping resource="here/wait/photo/share/bean/UserLikePhoto.hbm.xml"/>
+		<mapping resource="here/wait/photo/share/bean/PhoneMessage.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

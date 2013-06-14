@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="here.wait.photo.share.bean">
+	<class name="Comment" table="t_comment">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="content" />
+		<property name="createTime" column="create_time" />
+		<property name="toId" column="to_id" />
+
+		<many-to-one name="owner" column="owner_id" lazy="false" />
+		
+		<many-to-one name="photo" column="photo_id" lazy="false" /> 
+		
+	</class>
+</hibernate-mapping>
